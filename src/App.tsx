@@ -49,12 +49,15 @@ function App() {
     let [disabledSearch, setDisabledSearch] = useState(false);
     let [notFound, setNotFound] = useState(false);
     useEffect(() => {
-        // localStorage.clear();
         const loggedInUser = localStorage.getItem("user");
         if (loggedInUser) {
-            const foundUser = JSON.parse(loggedInUser);
-            setUser(foundUser);
-            setLoggedIn(true);
+            try {
+                const foundUser = JSON.parse(loggedInUser);
+                setUser(foundUser);
+                setLoggedIn(true);
+            } catch (e) {
+                localStorage.clear();
+            }
         }
     }, []);
     let hideOverflow = {
