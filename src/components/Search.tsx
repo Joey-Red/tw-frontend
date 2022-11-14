@@ -148,10 +148,14 @@ function Search({
             <div className="flex">
                 <span className="text-3xl p-2 w-full flex">
                     <span className="inline text-base flex self-end pb-[2px]">
-                        <a href="/">The</a>
+                        <a href="https://joey-red.github.io/tw-frontend/">
+                            The
+                        </a>
                     </span>
                     <span className="inline flex self-end pb-0">
-                        <a href="/">Watchlist</a>
+                        <a href="https://joey-red.github.io/tw-frontend/">
+                            Watchlist
+                        </a>
                     </span>
                 </span>
                 {!loggedIn && (

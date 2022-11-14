@@ -95,7 +95,7 @@ function Sidebar({
             {/* justify-between py-4 */}
             <div className="pb-4 pt-3 px-0 justify-center flex">
                 {" "}
-                <a href="/">
+                <a href="https://joey-red.github.io/tw-frontend/">
                     <img src={placeholderlogo} alt="" className="w-8" />
                 </a>
             </div>

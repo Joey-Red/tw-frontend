@@ -11,13 +11,13 @@ function SharedProfile() {
     useEffect(() => {
         let windowLoc = window.location.href;
         let splitUrl = windowLoc.split("/");
-        let partialUrl = splitUrl[3];
-        let userIdFromUrl = partialUrl.slice(5);
-        setUserId(userIdFromUrl);
+        let userIdFromUrl = splitUrl.slice(5);
+        setUserId(userIdFromUrl[0]);
         if (userId !== "") {
             fetch();
         }
     }, [userId]);
+
     let fetch = () => {
         Axios.post(`https://cyan-alive-pangolin.cyclic.app/get_user/`, {
             user: userId,

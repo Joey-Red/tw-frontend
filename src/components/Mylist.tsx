@@ -60,7 +60,7 @@ function Mylist({ user }: MyListProps) {
     // console.log(user)
     let copyLink = () => {
         navigator.clipboard.writeText(
-            `http://localhost:3001/#user:${user._id}`
+            `https://joey-red.github.io/tw-frontend/#/user${user._id}`
         );
     };
     return (
