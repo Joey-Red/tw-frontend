@@ -14,7 +14,6 @@ import placeholderlogo from "../img/placeholderlogo.png";
 interface SidebarProps {
     setMainContent: Function;
     setMyList: Function;
-    setOtherList: Function;
     setMemberList: Function;
     setSidebar: Function;
     sidebar: Boolean;
@@ -30,7 +29,6 @@ interface SidebarProps {
 function Sidebar({
     setMainContent,
     setMyList,
-    setOtherList,
     setMemberList,
     setSidebar,
     sidebar,
@@ -46,13 +44,11 @@ function Sidebar({
     const viewList = () => {
         setSettings(false);
         setMyList(true);
-        setOtherList(false);
         setMemberList(false);
         setSidebar(false);
         setMainContent(false);
     };
     const viewOthers = () => {
-        setOtherList(true);
         setMainContent(false);
         setSettings(false);
         setMemberList(false);
@@ -61,7 +57,6 @@ function Sidebar({
     };
     const seeMembers = () => {
         setMemberList(true);
-        setOtherList(false);
         setMainContent(false);
         setSidebar(false);
         setMyList(false);
@@ -70,7 +65,6 @@ function Sidebar({
     const showSettings = () => {
         setMemberList(false);
         setSettings(true);
-        setOtherList(false);
         setMainContent(false);
         setSidebar(false);
         setMyList(false);

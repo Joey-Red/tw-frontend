@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import Axios, { AxiosError } from "axios";
+import Axios from "axios";
 import { motion } from "framer-motion";
 
 interface displayDataProps {
@@ -82,7 +82,7 @@ function DisplayData({
     let [comment, setComment] = useState("");
     let [showPoster, setShowPoster] = useState(true);
     let [userRating, setUserRating] = useState(0);
-    // console.log(user);
+
     let changePoster = () => {
         setShowPoster(!showPoster);
     };
@@ -91,7 +91,6 @@ function DisplayData({
     };
     let checkYesPlan = () => {
         setPlanSee(!planSee);
-        // console.log(planSee);
     };
     let plansLabel = document.getElementById("plansLabel");
     let yesSeen = document.getElementById("yesSeen");
@@ -144,20 +143,26 @@ function DisplayData({
     let handleSubmit = () => {
         if (seen) {
             Axios.all([
-                Axios.put("http://localhost:8080/update-movies", {
-                    postUser: user,
-                    movieList: title,
-                }),
-                Axios.post("http://localhost:8080/movie-comment", {
-                    postUser: user,
-                    postUserId: user.id,
-                    movieName: title,
-                    seen: seen,
-                    planSee: planSee,
-                    userRating: userRating,
-                    moviePoster: poster,
-                    comment: comment,
-                }),
+                Axios.put(
+                    "https://cyan-alive-pangolin.cyclic.app/update-movies",
+                    {
+                        postUser: user,
+                        movieList: title,
+                    }
+                ),
+                Axios.post(
+                    "https://cyan-alive-pangolin.cyclic.app/movie-comment",
+                    {
+                        postUser: user,
+                        postUserId: user.id,
+                        movieName: title,
+                        seen: seen,
+                        planSee: planSee,
+                        userRating: userRating,
+                        moviePoster: poster,
+                        comment: comment,
+                    }
+                ),
             ]).then(
                 Axios.spread((data1, data2) => {
                     // console.log(data1, data2);
@@ -165,7 +170,7 @@ function DisplayData({
             );
         }
         if (!seen) {
-            Axios.post("http://localhost:8080/movie-comment", {
+            Axios.post("https://cyan-alive-pangolin.cyclic.app/movie-comment", {
                 postUser: user,
                 postUserId: user.id,
                 movieName: title,
@@ -229,7 +234,6 @@ function DisplayData({
                                 <FontAwesomeIcon icon={faXmark} size="xl" />
                             </button>
                         </div>
-                        {/* max-h-[650px] */}
                         <div className="flex justify-evenly min-h-full items-center flex-col p-2 pt-0 bg-neutral-800/90">
                             {loading && (
                                 <div className="flex-grow m-2 p-2 bg-black/90 rounded text-white h-full w-full">
@@ -261,7 +265,6 @@ function DisplayData({
                                         />
                                     </div>
                                 )}
-
                                 <div className="flex flex-col text-white">
                                     {showPoster && (
                                         <button
@@ -402,16 +405,6 @@ function DisplayData({
                                             Rating (1-10)
                                         </label>
                                     </div>
-                                    {/* <input
-                                type="number"
-                                name="userRating"
-                                id="userRating"
-                                min="0"
-                                max="10"
-                                maxLength={2}
-                                className="text-black rounded"
-                                onChange={changeRating}
-                            /> */}
                                     <div className="slidecontainer">
                                         <input
                                             type="range"

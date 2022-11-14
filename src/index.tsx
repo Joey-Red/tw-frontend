@@ -9,13 +9,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        {/* <HashRouter>
+        <HashRouter>
             <FrontRouter />
-        </HashRouter> */}
+        </HashRouter>
         {/* <FrontRouter /> */}
         {/* <App /> */}
-        <BrowserRouter>
+        {/* <BrowserRouter>
             <App />
-        </BrowserRouter>
+        </BrowserRouter> */}
     </React.StrictMode>
 );

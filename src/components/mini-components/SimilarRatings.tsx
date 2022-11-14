@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Axios, { AxiosError } from "axios";
+import Axios from "axios";
 import LoadingOne from "./Trending/LoadingOne";
-import theater from "../../img/theater2.jpg";
 interface SimilarRatingsProps {
     user: Object;
     loggedIn: Boolean;
@@ -13,9 +12,8 @@ function SimilarRatings({ user, loggedIn }: SimilarRatingsProps) {
     let [loading, setLoading] = useState(true);
     let [similarUsers, setSimilarUsers]: any = useState([{}]);
     useEffect(() => {
-        // console.log(user);
         if (loggedIn === true) {
-            Axios.post("http://localhost:8080/similar", {
+            Axios.post("https://cyan-alive-pangolin.cyclic.app/similar", {
                 user: user,
             })
                 .then((res) => {
@@ -42,21 +40,8 @@ function SimilarRatings({ user, loggedIn }: SimilarRatingsProps) {
     return (
         <div className="">
             {!loggedIn && (
-                <div
-                    className="sm:max-h-[300px] sm:min-h-[300px] flex relative"
-                    // style={{
-                    //     background: `url(${theater}) center center no-repeat`,
-                    //     backgroundSize: "cover",
-                    // }}
-                >
+                <div className="sm:max-h-[300px] sm:min-h-[300px] flex relative">
                     <div className="w-full relative flex border rounded border-white">
-                        {/* <div
-                            className="absolute top-0 bottom-0 left-0 right-0 bg-neutral-900/90 contrast-[0.75] blur-sm"
-                            style={{
-                                background: `url(${theater}) center center no-repeat fixed`,
-                                backgroundSize: "cover",
-                            }}
-                        ></div>{" "} */}
                         <div className="text-center text-white text-2xl flex z-20 rounded m-4 p-4 my-auto bg-neutral-900/90">
                             Log in and start adding movies to see which movies
                             you and others have in common!
@@ -69,13 +54,6 @@ function SimilarRatings({ user, loggedIn }: SimilarRatingsProps) {
                     style={{ overflowY: "auto" }}
                     className="relative flex flex-col max-h-[300px] min-h-[300px] overflow-x-[hidden]"
                 >
-                    {/* <div
-                        className="absolute top-[0] bottom-[0] left-[0] right-[0] bg-neutral-900/90 contrast-[0.75] blur-sm"
-                        style={{
-                            background: `url(${theater}) center center fixed no-repeat`,
-                            backgroundSize: "cover",
-                        }}
-                    ></div> */}
                     {similarUsers.map((a: any) => {
                         return (
                             <div

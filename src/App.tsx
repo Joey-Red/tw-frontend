@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, HashRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Search from "./components/Search";
 import Sidebar from "./components/Sidebar";
 import MainContent from "./components/MainContent";
 import SecondaryContent from "./components/SecondaryContent";
 import Mylist from "./components/Mylist";
-import Otherlist from "./components/Otherlist";
 import MemberList from "./components/MemberList";
 import LogIn from "./components/LogIn";
 import Register from "./components/Register";
 import DisplayData from "./components/DisplayData";
-import FrontRouter from "./FrontRouter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faGithub,
@@ -24,7 +21,6 @@ function App() {
     // Displaying components
     let [mainContent, setMainContent] = useState(true);
     let [myList, setMyList] = useState(false);
-    let [otherList, setOtherList] = useState(false);
     let [memberList, setMemberList] = useState(false);
     let [sidebar, setSidebar] = useState(false);
     let [showRegister, setShowRegister] = useState(false);
@@ -37,7 +33,6 @@ function App() {
 
     // Retrieved Data
     let [loading, setLoading] = useState(true);
-    let [currMovie, setCurrMovie] = useState("");
     let [actors, setActors] = useState("");
     let [awards, setAwards] = useState("");
     let [plot, setPlot] = useState("");
@@ -132,7 +127,6 @@ function App() {
                             setUser={setUser}
                             setMainContent={setMainContent}
                             setMyList={setMyList}
-                            setOtherList={setOtherList}
                             setMemberList={setMemberList}
                             sidebar={sidebar}
                             setSidebar={setSidebar}
@@ -155,14 +149,9 @@ function App() {
                         setSidebar={setSidebar}
                         loggedIn={loggedIn}
                         setLoggedIn={setLoggedIn}
-                        showLogIn={showLogIn}
                         setShowLogIn={setShowLogIn}
-                        showRegister={showRegister}
-                        setShowRegister={setShowRegister}
                         user={user}
                         setUser={setUser}
-                        currMovie={currMovie}
-                        setCurrMovie={setCurrMovie}
                         setDisplayData={setDisplayData}
                         setActors={setActors}
                         setAwards={setAwards}
@@ -248,7 +237,6 @@ function App() {
                         </div>
                     )}
                     {myList && <Mylist user={user} />}
-                    {otherList && <Otherlist />}
                     {memberList && <MemberList />}
                     {settings && (
                         <Settings

@@ -22,21 +22,21 @@ function SecondaryContent({ user, loggedIn }: SecondaryContentProps) {
     let [loadingTop, setLoadingTop] = useState(true);
     let [topThree, setTopThree]: any = useState([{}]);
     useEffect(() => {
-        // Axios.get("https://inshorts.deta.dev/news?category=entertainment")
-        //     .then((res) => {
-        //         setArticles(res.data.data);
-        //         setLoading(false);
-        //     })
-        //     .catch((err) => {
-        //         if (axios.isAxiosError(err)) {
-        //             // Access to config, request, and response
-        //         } else {
-        //             // Just a stock error
-        //         }
-        //     });
+        Axios.get("https://inshorts.deta.dev/news?category=entertainment")
+            .then((res) => {
+                setArticles(res.data.data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                if (axios.isAxiosError(err)) {
+                    // Access to config, request, and response
+                } else {
+                    // Just a stock error
+                }
+            });
     }, []);
     useEffect(() => {
-        Axios.get("http://localhost:8080/rankings")
+        Axios.get("https://cyan-alive-pangolin.cyclic.app/rankings")
             .then((res) => {
                 setTopThree(res.data);
                 // console.log(res.data);

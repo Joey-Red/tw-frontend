@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Axios, { AxiosError } from "axios";
+import Axios from "axios";
 import LoadingOne from "./Trending/LoadingOne";
 
 function SharedProfile() {
@@ -19,7 +19,7 @@ function SharedProfile() {
         }
     }, [userId]);
     let fetch = () => {
-        Axios.post(`http://localhost:8080/get_user/`, {
+        Axios.post(`https://cyan-alive-pangolin.cyclic.app/get_user/`, {
             user: userId,
         })
             .then((res) => {
@@ -40,15 +40,6 @@ function SharedProfile() {
                 console.log(err);
             });
     };
-    // useEffect(() => {
-    //     console.log(movieList);
-    // }, [movieList]);
-
-    // Take username from url
-    // <div className="bg-stone-100 flex justify-center w-full">
-    //     <div className="flex w-screen max-w-screen-lg h-screen bg-slate-50"></div>
-    // </div>
-    //grab their data ! woo pog pog
     return (
         <div
             className="max-h-screen m-2 p-2"
@@ -59,10 +50,7 @@ function SharedProfile() {
                     <div className="text-2xl text-center bg-neutral-900/90 text-white rounded">
                         <LoadingOne />
                     </div>
-                    <div
-                        className="flex my-2 sm:text-xl md:text-3xl bg-neutral-900/10 p-2"
-                        // className="flex my-2 text-3xl bg-neutral-900/10 p-2"
-                    >
+                    <div className="flex my-2 sm:text-xl md:text-3xl bg-neutral-900/10 p-2">
                         <div className="w-full">
                             <div>
                                 <p className="max-w-[20ch] mx-auto text-center">
@@ -76,10 +64,7 @@ function SharedProfile() {
                                 <LoadingOne />
                             </div>
                         </div>
-                        <div
-                            // className="max-h-[445px] max-w-[300px] ml-auto"
-                            className="bg-slade-900 max-w-[100px] max-h-[148px] sm:max-h-[445px] smmax-w-[300px] ml-auto"
-                        />
+                        <div className="bg-slade-900 max-w-[100px] max-h-[148px] sm:max-h-[445px] smmax-w-[300px] ml-auto" />
                     </div>
                 </>
             )}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Axios, { AxiosError } from "axios";
+import Axios from "axios";
 import DisplayMovies from "./mini-components/DisplayMovies";
 import LoadingMany from "./mini-components/LoadingMany";
 
@@ -7,13 +7,12 @@ function MemberList() {
     const [listOfUsers, setListOfUsers] = useState<any>([{}]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        Axios.get("http://localhost:8080/user-list")
+        Axios.get("https://cyan-alive-pangolin.cyclic.app/user-list")
             .then((res) => {
                 if (res.data === 403) {
                     // no users found?
                 } else {
                     setListOfUsers(res.data);
-                    // console.log("data: ", res.data);
                     setLoading(false);
                 }
             })

@@ -8,20 +8,17 @@ interface DisplayMoviesProps {
 }
 function DisplayMovies({ user }: DisplayMoviesProps) {
     let [loading, setLoading] = useState(true);
-    let [randomized, setRandomized] = useState(false);
     let [avg, setAvg] = useState<number | string>("NA");
     // let [hide, setHide] = useState(true);
     const [listOfRatings, setListOfRatings] = useState<any>([{}]);
     useEffect(() => {
-        Axios.post("http://localhost:8080/ratings", {
+        Axios.post("https://cyan-alive-pangolin.cyclic.app/ratings", {
             postUser: user,
         })
             .then((res) => {
                 if (res.data === 403) {
-                    // no users found?
                 } else {
                     setListOfRatings(res.data);
-                    // console.log("data: ", res.data);
                     setLoading(false);
                 }
             })
@@ -44,9 +41,7 @@ function DisplayMovies({ user }: DisplayMoviesProps) {
 
     ratingArray.forEach((rating: any) => {
         if (rating.postUserId === user._id) {
-            // console.log(rating.movieName, rating.moviePoster);
             newRatingArr.push(rating.userRating);
-            // Getting user rating and comment of each movie
             displayMovieArr.push(
                 <div
                     key={uuidv4()}
@@ -54,7 +49,6 @@ function DisplayMovies({ user }: DisplayMoviesProps) {
                     style={{
                         overflowY: "auto",
                         textOverflow: "clip",
-                        // whiteSpace: "nowrap",
                         overflowX: "hidden",
                     }}
                 >
@@ -63,7 +57,6 @@ function DisplayMovies({ user }: DisplayMoviesProps) {
                     </div>
                     <img
                         className="max-w-[100px] max-h-[148px] mx-auto mt-auto"
-                        // sm:max-h-[445px] sm:max-w-[300px]
                         src={rating.moviePoster}
                         alt={rating.movieName}
                     />

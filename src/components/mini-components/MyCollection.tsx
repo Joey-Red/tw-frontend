@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Axios, { AxiosError } from "axios";
+import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faPencilAlt,
     faCheck,
     faEraser,
     faX,
-    faPlus,
     faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 interface MyCollectionProps {
@@ -41,7 +40,7 @@ function MyCollection({
     };
 
     let updateRating = () => {
-        Axios.put("http://localhost:8080/update-rating", {
+        Axios.put("https://cyan-alive-pangolin.cyclic.app/update-rating", {
             id: rating._id,
             rating: userRating,
         })
@@ -66,7 +65,7 @@ function MyCollection({
     }, [updateMsg]);
 
     let deleteMovie = () => {
-        Axios.delete("http://localhost:8080/delete-movie", {
+        Axios.delete("https://cyan-alive-pangolin.cyclic.app/delete-movie", {
             data: {
                 id: rating._id,
                 user: user,

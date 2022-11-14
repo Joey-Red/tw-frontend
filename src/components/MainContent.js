@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Axios, { AxiosError } from "axios";
-import { motion, AnimatePresence } from "framer-motion";
+import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faArrowAltCircleDown,
     faArrowAltCircleLeft,
     faArrowAltCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
@@ -25,26 +23,6 @@ function MainContent() {
         postUser: "..loading",
         comment: "loading..",
     };
-    // const variants = {
-    //     enter: (direction) => {
-    //         return {
-    //             x: direction > 0 ? 1000 : -1000,
-    //             opacity: 0,
-    //         };
-    //     },
-    //     center: {
-    //         zIndex: 1,
-    //         x: 0,
-    //         opacity: 1,
-    //     },
-    //     exit: (direction) => {
-    //         return {
-    //             zIndex: 0,
-    //             x: direction < 0 ? 1000 : -1000,
-    //             opacity: 0,
-    //         };
-    //     },
-    // };
     useEffect(() => {
         if (currSize === "sm") {
             const interval = setInterval(() => {
@@ -84,7 +62,7 @@ function MainContent() {
     };
     useEffect(() => {
         // Get 3 most recent posts
-        Axios.get("http://localhost:8080/trending", {})
+        Axios.get("https://cyan-alive-pangolin.cyclic.app/trending", {})
             .then((res) => {
                 if (res.data === 403) {
                     // no users found?

@@ -1,12 +1,9 @@
-import React from "react";
-
 interface ArticleData {
     title: string;
     author: string;
     content: string;
     readMoreUrl: string;
     imageUrl: string;
-    // post: object;
 }
 function ArticleContainer({
     title,

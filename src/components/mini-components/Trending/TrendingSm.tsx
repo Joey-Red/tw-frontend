@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 interface TrendingSmProps {
     content: any;
 }
 function TrendingSm({ content }: TrendingSmProps) {
     let [opaque, setOpaque] = useState(false);
-    // let opaqueDiv = document.getElementById({content._id})
     let opaqueStyle = {
         display: "none",
     };

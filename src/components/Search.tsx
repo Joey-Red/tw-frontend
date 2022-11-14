@@ -3,10 +3,7 @@ import Axios, { AxiosError } from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faMagnifyingGlass,
-    faChevronDown,
     faBars,
-    faPerson,
-    faPersonBooth,
     faCircleUser,
 } from "@fortawesome/free-solid-svg-icons";
 interface SearchProps {
@@ -14,13 +11,8 @@ interface SearchProps {
     setLoggedIn: Function;
     sidebar: Boolean;
     loggedIn: Boolean;
-    showLogIn: Boolean;
     setShowLogIn: Function;
-    showRegister: Boolean;
-    setShowRegister: Function;
     user: any;
-    currMovie: String;
-    setCurrMovie: Function;
     setDisplayData: Function;
     setActors: Function;
     setAwards: Function;
@@ -49,13 +41,8 @@ function Search({
     loggedIn,
     setUser,
     setLoggedIn,
-    showLogIn,
     setShowLogIn,
-    showRegister,
-    setShowRegister,
     user,
-    currMovie,
-    setCurrMovie,
     setDisplayData,
     setActors,
     setAwards,

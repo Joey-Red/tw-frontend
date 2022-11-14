@@ -5,13 +5,7 @@ import LoadingOneAlt from "./mini-components/Trending/LoadingOneAlt";
 interface MyListProps {
     user: any;
 }
-// declare module "axios" {
-//     export interface AxiosRequestConfig {
-//         user: object;
-//         id: string;
-//         data: { id: any; user: any; }
-//     }
-// }
+
 function Mylist({ user }: MyListProps) {
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
@@ -27,7 +21,7 @@ function Mylist({ user }: MyListProps) {
         ) {
             setNoUser(true);
         }
-        Axios.post("http://localhost:8080/ratings", {
+        Axios.post("https://cyan-alive-pangolin.cyclic.app/ratings", {
             postUser: user,
         })
             .then((res) => {
@@ -35,7 +29,6 @@ function Mylist({ user }: MyListProps) {
                     // no users found?
                 } else {
                     setMovies(res.data);
-                    // console.log("data: ", res.data);
                     setLoading(false);
                 }
             })
@@ -43,9 +36,7 @@ function Mylist({ user }: MyListProps) {
                 console.log(err);
             });
     }, []);
-    // useEffect(() => {
-    //     console.log(movies);
-    // }, [movies]);
+
     let ratingArray = movies;
     let newRatingArr: any = [];
     let displayMovieArr: any = [];
@@ -68,7 +59,9 @@ function Mylist({ user }: MyListProps) {
     });
     // console.log(user)
     let copyLink = () => {
-        navigator.clipboard.writeText(`http://localhost:3001/user:${user._id}`);
+        navigator.clipboard.writeText(
+            `http://localhost:3001/#user:${user._id}`
+        );
     };
     return (
         <div
