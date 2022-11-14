@@ -81,7 +81,7 @@ function Sidebar({
     const handleLogout = () => {
         setUser({});
         localStorage.clear();
-        window.location.replace("http://localhost:3001/");
+        window.location.replace("https://joey-red.github.io/tw-frontend/");
         setLoggedIn(false);
     };
     let closeSidebar = () => {
