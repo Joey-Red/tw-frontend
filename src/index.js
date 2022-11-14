@@ -3,15 +3,12 @@ import { BrowserRouter, HashRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-const root = ReactDOM.createRoot(
-    document.getElementById("root") as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
         <HashRouter>
-            <App />
+            <App basename="https://joey-red.github.io/tw-frontend/" />
         </HashRouter>
-        {/* <FrontRouter /> */}
         {/* <BrowserRouter>
             <App />
         </BrowserRouter> */}

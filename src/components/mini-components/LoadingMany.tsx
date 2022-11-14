@@ -1,3 +1,4 @@
+import React from "react";
 function LoadingMany() {
     return (
         <div>
