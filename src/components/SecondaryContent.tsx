@@ -76,13 +76,13 @@ function SecondaryContent({ user, loggedIn }: SecondaryContentProps) {
                         <SimilarRatings user={user} loggedIn={loggedIn} />
                     </div>
                 </div>
-                <div className="mt-3 rounded w-full flex flex-col h-full">
+                <div className="mt-3 rounded w-full flex flex-col h-full flex-grow">
                     <p className="bg-white text-black border-l-4 border-red-400 p-1 mb-2 text-center text-white text-xl text-center">
                         Top 3 Movies
                     </p>
                     {!loadingTop && (
-                        <div className="">
-                            <div className="flex flex-col justify-between h-full gap-2 max-h-[600px] overflow-y-scroll">
+                        <div className="h-full">
+                            <div className="flex flex-col justify-between h-full gap-2 max-h-[647px] overflow-y-scroll">
                                 <div className="bg-slate-900/90 flex-col flex sm:min-h-[600px] rounded-bl rounded-tl ">
                                     <p className="text-white text-xl text-center">
                                         Rank One
