@@ -180,7 +180,7 @@ function DisplayData({
                 comment: comment,
             });
         }
-        window.location.replace("http://localhost:3001/");
+        window.location.replace("https://joey-red.github.io/tw-frontend/");
     };
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef);
