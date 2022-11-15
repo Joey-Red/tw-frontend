@@ -69,7 +69,7 @@ function Register({
     useOutsideAlerter(wrapperRef);
     // Sign Up
     const signUp = () => {
-        Axios.post("http://localhost:8080/sign-up", {
+        Axios.post("https://cyan-alive-pangolin.cyclic.app/sign-up", {
             username: usernameField,
             password: passwordField,
         })

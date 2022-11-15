@@ -81,7 +81,7 @@ function Search({
         setDisplayData(true);
         setSidebar(false);
         Axios.post(
-            `http://www.omdbapi.com/?apikey=f8c753b6&t=${currSearch}&plot=full`
+            `https://www.omdbapi.com/?apikey=f8c753b6&t=${currSearch}&plot=full`
         )
             .then((res: any) => {
                 if (res.status === 200 && !res.data.Error) {
