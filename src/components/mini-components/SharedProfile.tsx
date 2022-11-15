@@ -12,7 +12,8 @@ function SharedProfile() {
         let windowLoc = window.location.href;
         let splitUrl = windowLoc.split("/");
         let userIdFromUrl = splitUrl.slice(5);
-        setUserId(userIdFromUrl[0]);
+        setUserId(userIdFromUrl[0].slice(4));
+        // console.log(url.split("/").slice(5)[0].slice(4));
         if (userId !== "") {
             fetch();
         }
@@ -42,8 +43,9 @@ function SharedProfile() {
     };
     return (
         <div
-            className="max-h-screen m-2 p-2"
-            style={{ maxHeight: "calc(100vh - 200px)", overflowY: "auto" }}
+            className="m-2 p-2 flex mx-auto  flex-col"
+            style={{ overflowY: "auto" }}
+            // maxHeight: "calc(100vh - 200px)",
         >
             {!loaded && (
                 <>
@@ -74,9 +76,15 @@ function SharedProfile() {
                 </div>
             )}
             {noUserFound && (
-                <div className="bg-neutral-900/90 rounded p-4 text-center text-xl text-white">
-                    Either no users were found, or they have not added any
-                    movies to their list.
+                <div
+                    style={{
+                        height: "calc(100vh - 200px)",
+                    }}
+                >
+                    <div className="bg-neutral-900/90 rounded p-4 text-center text-xl text-white">
+                        Either no users were found, or they have not added any
+                        movies to their list.
+                    </div>
                 </div>
             )}
             {loaded &&
