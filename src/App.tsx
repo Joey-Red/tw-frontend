@@ -68,7 +68,11 @@ function App() {
         <>
             <div
                 className="bg-stone-100 flex justify-center w-full"
-                style={displayData ? hideOverflow : showOverflow}
+                style={
+                    displayData || showLogIn || showRegister
+                        ? hideOverflow
+                        : showOverflow
+                }
             >
                 {displayData && (
                     <DisplayData
