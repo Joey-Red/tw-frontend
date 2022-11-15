@@ -163,11 +163,7 @@ function DisplayData({
                         comment: comment,
                     }
                 ),
-            ]).then(
-                Axios.spread((data1, data2) => {
-                    // console.log(data1, data2);
-                })
-            );
+            ]).then(rerout);
         }
         if (!seen) {
             Axios.post("https://cyan-alive-pangolin.cyclic.app/movie-comment", {
@@ -178,9 +174,11 @@ function DisplayData({
                 planSee: planSee,
                 moviePoster: poster,
                 comment: comment,
-            });
+            }).then(rerout);
         }
-        window.location.replace("https://joey-red.github.io/tw-frontend/");
+    };
+    let rerout = () => {
+        window.location.href = "https://joey-red.github.io/tw-frontend/";
     };
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef);
